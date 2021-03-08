@@ -28,7 +28,7 @@ public class FindaDoctorStepDefinition {
 
 	@When("I land on Find a Doctor page")
 	public void i_land_on_Find_a_Doctor_page() {
-		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		SetupDrivers.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Assert.assertEquals(Action1.verifyFindaDocPage(), true);
 	}
 

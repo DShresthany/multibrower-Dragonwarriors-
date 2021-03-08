@@ -9,7 +9,7 @@ public class SigninActions {
 	
 	public SigninActions() {
 		this.signin = new SignInElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, signin);
+		PageFactory.initElements(SetupDrivers.driver, signin);
 	}
 	
 	

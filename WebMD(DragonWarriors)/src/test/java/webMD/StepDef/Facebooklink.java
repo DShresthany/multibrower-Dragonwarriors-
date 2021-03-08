@@ -17,28 +17,28 @@ public class Facebooklink {
 	
 	@Given("I click on Facebook Like Page button")
 	public void i_click_on_Facebook_Like_Page_button() throws InterruptedException {
-		parentWindow = SetupDrivers.chromeDriver.getWindowHandle();
+		parentWindow = SetupDrivers.driver.getWindowHandle();
 		System.out.println("parent Window is:" + parentWindow);
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15); // Explicit Wait of 15 seconds
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15); // Explicit Wait of 15 seconds
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.xpath("//iframe[@data-testid='fb:page Facebook Social Plugin']")));
 		//SetupDrivers.chromeDriver.switchTo().frame(SetupDrivers.chromeDriver.findElement(By.xpath("//iframe[@data-testid='fb:page Facebook Social Plugin']")));
 		//System.out.println(FbElements.likeFacebookLink.getText());
-		WebDriverWait wait1 = new WebDriverWait(SetupDrivers.chromeDriver, 15); // Explicit Wait of 15 seconds
+		WebDriverWait wait1 = new WebDriverWait(SetupDrivers.driver, 15); // Explicit Wait of 15 seconds
 		wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='u_0_2']")));
 		FbActions.clicklikeFBbtn();
 	}
 
 	@Then("I land on new window of WebMD Facebook Page")
 	public void i_land_on_new_window_of_WebMD_Facebook_Page() {
-		Set<String> whandles = SetupDrivers.chromeDriver.getWindowHandles();
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15); // Explicit Wait of 15 seconds
+		Set<String> whandles = SetupDrivers.driver.getWindowHandles();
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15); // Explicit Wait of 15 seconds
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		System.out.println("Num of whandles:" + whandles.size());
 		for (String childWindow : whandles) {
 			if (!parentWindow.equals(childWindow)) {
-				SetupDrivers.chromeDriver.switchTo().window(childWindow);
+				SetupDrivers.driver.switchTo().window(childWindow);
 				System.out.println("Child Window Handler: "+ childWindow);
-				System.out.println(">> Child Window title: "+SetupDrivers.chromeDriver.switchTo().window(childWindow).getTitle());
+				System.out.println(">> Child Window title: "+SetupDrivers.driver.switchTo().window(childWindow).getTitle());
 			}
 
 		}

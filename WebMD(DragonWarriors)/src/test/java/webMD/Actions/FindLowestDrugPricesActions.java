@@ -9,7 +9,7 @@ public class FindLowestDrugPricesActions {
 	
 	public FindLowestDrugPricesActions() {
 		this.priceElements = new LowestDrugPricesElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, priceElements);
+		PageFactory.initElements(SetupDrivers.driver, priceElements);
 	}
 	
 	public void clicklowestDrugLink() {

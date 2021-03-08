@@ -10,7 +10,7 @@ public class SearchBoxActions {
 	
 	public SearchBoxActions () {
 		this.searchBoxAct = new SearchBoxElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, searchBoxAct);
+		PageFactory.initElements(SetupDrivers.driver, searchBoxAct);
 		
 	}
 	
@@ -31,7 +31,7 @@ public class SearchBoxActions {
 	
 	public boolean verifySearchResult() {
 		boolean bool = false;
-		if(SetupDrivers.chromeDriver.getTitle().contains("WebMD Health Search")) {
+		if(SetupDrivers.driver.getTitle().contains("WebMD Health Search")) {
 			bool = true;
 		}
 		return bool;

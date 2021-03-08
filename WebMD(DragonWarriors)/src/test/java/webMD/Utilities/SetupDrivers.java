@@ -4,19 +4,31 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SetupDrivers {
 
-	public static WebDriver chromeDriver;
+	public static WebDriver driver;
+
 
 	public static void setupChromeDriver() {
 		WebDriverManager.chromedriver().setup();
-		chromeDriver = new ChromeDriver();
-		chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}
+	
+	public static void setupFirefoxDriver() {
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 	}
 
-	public static void closeChromeDriver() {
-		chromeDriver.quit();
+	public static void closeDriver() {
+		driver.quit();
 	}
+	
+
 }

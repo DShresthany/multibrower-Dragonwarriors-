@@ -14,7 +14,7 @@ public class AfterActions {
 		try {
 			if (scen.isFailed()) {
 				String screenshotName = scen.getName().replaceAll(" ", "_");
-				TakesScreenshot ts = (TakesScreenshot) SetupDrivers.chromeDriver;
+				TakesScreenshot ts = (TakesScreenshot) SetupDrivers.driver;
 				byte[] screenshotBytes = ts.getScreenshotAs(OutputType.BYTES);
 				scen.attach(screenshotBytes, "image/png", screenshotName);
 			}
@@ -22,7 +22,7 @@ public class AfterActions {
 			e.printStackTrace();
 		}
 
-		SetupDrivers.closeChromeDriver();
+		SetupDrivers.closeDriver();
 		System.out.println("..Browser Closed..");
 	}
 }

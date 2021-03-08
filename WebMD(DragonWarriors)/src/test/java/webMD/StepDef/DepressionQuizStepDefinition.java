@@ -31,7 +31,7 @@ public class DepressionQuizStepDefinition {
 
 	@Given("I land on Depression page")
 	public void i_land_on_Depression_page() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 10);
 		wait.until(ExpectedConditions.titleContains("Depression"));
 		Assert.assertEquals(Quiz.verifyDepressionPage(), true);
 
@@ -51,7 +51,7 @@ public class DepressionQuizStepDefinition {
 
 	@Given("I land on Depression Quizzes Page")
 	public void i_land_on_Depression_Quizzes_Page() {
-		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		SetupDrivers.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Assert.assertEquals(Quiz.verifyDepressionQuizPage(), true);
 
 	}
@@ -71,7 +71,7 @@ public class DepressionQuizStepDefinition {
 	@Given("I am able to select the answers and complete the quizzes")
 	public void i_am_able_to_select_the_answers_and_complete_the_quizzes() throws InterruptedException {
 	 for(int i=0; i<=7; i++) {
-		List<WebElement> question = SetupDrivers.chromeDriver
+		List<WebElement> question = SetupDrivers.driver
 				.findElements(By.xpath("//li[@class='slide question slide-with-image']"));
 		for (WebElement li : question) {
 			if (li.isDisplayed()) {
@@ -79,7 +79,7 @@ public class DepressionQuizStepDefinition {
 			}
 
 		}
-		List<WebElement> answer = SetupDrivers.chromeDriver.findElements(By.xpath("//li[@class='slide answer']"));
+		List<WebElement> answer = SetupDrivers.driver.findElements(By.xpath("//li[@class='slide answer']"));
 		for (WebElement li : answer) {
 			if (li.isDisplayed()) {
 				Quiz.clickNext();

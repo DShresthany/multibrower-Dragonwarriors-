@@ -12,7 +12,7 @@ public class CoronaVirusUpdateActions {
 
 	public CoronaVirusUpdateActions() {
 		this.VirusUpdateElements = new CoronaVirusUpdateElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, VirusUpdateElements);
+		PageFactory.initElements(SetupDrivers.driver, VirusUpdateElements);
 	}
 
 	public void clickCoronaUpdateLink() {

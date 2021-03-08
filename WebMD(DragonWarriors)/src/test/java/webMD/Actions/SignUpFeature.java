@@ -14,7 +14,7 @@ public class SignUpFeature {
 	
 	public SignUpFeature() {
 		this.SignUp = new SignUpElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, SignUp);
+		PageFactory.initElements(SetupDrivers.driver, SignUp);
 	}
 	
 	public void clickSignInLink() {
@@ -22,7 +22,7 @@ public class SignUpFeature {
 	}
 	
 	public void clickSignUnLink() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 3);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 3);
 		wait.until(ExpectedConditions.elementToBeClickable(SignUp.SignUpLink));
 		SignUp.SignUpLink.click();
 	}

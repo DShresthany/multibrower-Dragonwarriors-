@@ -22,7 +22,7 @@ public class fitnessCalorieCounterStepDefinition {
 
 	@Given("I land on Fitness & Exercise page")
 	public void i_land_on_Fitness_Exercise_page() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 10);
 		wait.until(ExpectedConditions.titleContains("Calories Burned Calculator"));
 		Assert.assertEquals(CalorieActions.verifyFitnessPage(), true);
 	}

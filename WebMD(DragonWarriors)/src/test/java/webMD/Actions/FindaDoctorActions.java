@@ -17,13 +17,13 @@ public class FindaDoctorActions {
 	public FindaDoctorActions( /* WebDriver chromeDriver */ ) {
 		this.doctorElements = new FindaDoctorElements( /* chromeDriver */ );
 //		SetupDrivers.setupChromeDriver();
-		PageFactory.initElements(SetupDrivers.chromeDriver, doctorElements);
+		PageFactory.initElements(SetupDrivers.driver, doctorElements);
 	}
 
 	public void getwebMDHomepage() {
-		SetupDrivers.chromeDriver.get("https://www.webmd.com/");
-		SetupDrivers.chromeDriver.manage().window().maximize();
-		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		SetupDrivers.driver.get("https://www.webmd.com/");
+		SetupDrivers.driver.manage().window().maximize();
+		SetupDrivers.driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 	}
 
 	public void cookieClose() {
@@ -36,10 +36,10 @@ public class FindaDoctorActions {
 
 	public boolean verifyFindaDocPage() {
 		boolean bool = false;
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 10);
 		wait.until(ExpectedConditions.titleContains("Find Doctors Near You"));
-		System.out.println(SetupDrivers.chromeDriver.getTitle());
-		if (SetupDrivers.chromeDriver.getTitle().contains("Find Doctors Near You")) {
+		System.out.println(SetupDrivers.driver.getTitle());
+		if (SetupDrivers.driver.getTitle().contains("Find Doctors Near You")) {
 			bool = true;
 		}
 		return bool;
@@ -66,7 +66,7 @@ public class FindaDoctorActions {
 
 	public boolean verifyWebMDHomepage() {
 		boolean bool = false;
-		if (SetupDrivers.chromeDriver.getTitle().contains("WebMD")) {
+		if (SetupDrivers.driver.getTitle().contains("WebMD")) {
 			bool = true;
 		}
 		return bool;

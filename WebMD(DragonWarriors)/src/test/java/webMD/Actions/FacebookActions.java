@@ -12,11 +12,11 @@ public class FacebookActions {
 
 	public FacebookActions() {
 		this.FbElements = new FacebookElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, FbElements);
+		PageFactory.initElements(SetupDrivers.driver, FbElements);
 	}
 	
 	public void clicklikeFBbtn(){
-		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.driver;
 		jse.executeScript("arguments[0].click()", FbElements.likeFacebookLink);
 //		FbElements.likeFacebookLink.click();
 	}
@@ -29,9 +29,9 @@ public class FacebookActions {
 	public boolean verifyFBPage() {
 		boolean bool = false;
 		
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15);
 		wait.until(ExpectedConditions.titleContains("Facebook"));
-		if (SetupDrivers.chromeDriver.getTitle().contains("Facebook")) {
+		if (SetupDrivers.driver.getTitle().contains("Facebook")) {
 			bool = true;
 		}
 		return bool;
@@ -43,9 +43,9 @@ public class FacebookActions {
 	
 	public boolean verifyTwitterPage() {
 		boolean bool = false;
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15);
 		wait.until(ExpectedConditions.titleContains("Twitter"));
-		if (SetupDrivers.chromeDriver.getTitle().contains("Twitter")) {
+		if (SetupDrivers.driver.getTitle().contains("Twitter")) {
 			bool = true;
 		}
 		return bool;
@@ -57,9 +57,9 @@ public class FacebookActions {
 	
 	public boolean verifyPinterestPage() {
 		boolean bool = false;
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15);
 		wait.until(ExpectedConditions.titleContains("Pinterest"));
-		if (SetupDrivers.chromeDriver.getTitle().contains("Pinterest")) {
+		if (SetupDrivers.driver.getTitle().contains("Pinterest")) {
 			bool = true;
 		}
 		return bool;

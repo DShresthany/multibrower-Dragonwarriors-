@@ -12,7 +12,7 @@ public class BMIActions {
 
 	public BMIActions() {
 		this.BMIElements = new BMICalculatorElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, BMIElements);
+		PageFactory.initElements(SetupDrivers.driver, BMIElements);
 	}
 
 	public void clickBMICalulator() {
@@ -21,7 +21,7 @@ public class BMIActions {
 
 	public boolean verifyBMIPage() {
 		boolean bool = false;
-		if (SetupDrivers.chromeDriver.getTitle().contains("BMI Calculator")) {
+		if (SetupDrivers.driver.getTitle().contains("BMI Calculator")) {
 			bool = true;
 		}
 		return bool;
@@ -41,7 +41,7 @@ public class BMIActions {
 	}
 
 	public void clickSubmitBtn() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(BMIElements.submitBtn));
 		BMIElements.submitBtn.click();
 	}

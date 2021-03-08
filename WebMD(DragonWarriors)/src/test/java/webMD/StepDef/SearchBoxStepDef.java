@@ -33,7 +33,7 @@ public class SearchBoxStepDef {
 
 	@Then("I should be taken to the search result page")
 	public void i_should_be_taken_to_the_search_result_page() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 3);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 3);
 		wait.until(ExpectedConditions.titleContains("WebMD Health Search"));
 		Assert.assertEquals(searchAct.verifySearchResult(), true);
 		

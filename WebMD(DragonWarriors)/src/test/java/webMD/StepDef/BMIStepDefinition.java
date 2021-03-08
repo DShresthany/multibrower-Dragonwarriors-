@@ -22,7 +22,7 @@ public class BMIStepDefinition {
 
 	@Given("I land on BMI Calculator Page")
 	public void i_land_on_BMI_Calculator_Page() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 5);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 5);
 		wait.until(ExpectedConditions.titleContains("BMI Calculator"));
 		boolean Actual = Actions2.verifyBMIPage();
 		Assert.assertEquals(Actual, true);
@@ -62,7 +62,7 @@ public class BMIStepDefinition {
 
 	@Then("I am able to see error message")
 	public void i_am_able_to_see_error_message() {
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 10);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 10);
 		wait.until(ExpectedConditions.titleContains("BMI Calculator"));
 		boolean Actual = Actions2.verifyErrorMsg();
 		Assert.assertEquals(Actual, true);

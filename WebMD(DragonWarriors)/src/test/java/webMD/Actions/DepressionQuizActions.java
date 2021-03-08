@@ -20,11 +20,11 @@ public class DepressionQuizActions {
 
 	public DepressionQuizActions() {
 		this.QuizElements = new DepressionQuizElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, QuizElements);
+		PageFactory.initElements(SetupDrivers.driver, QuizElements);
 	}
 
 	public void mousehover() {
-		Actions action = new Actions(SetupDrivers.chromeDriver);
+		Actions action = new Actions(SetupDrivers.driver);
 		action.moveToElement(QuizElements.Healthlink);
 	}
 
@@ -34,7 +34,7 @@ public class DepressionQuizActions {
 
 	public boolean verifyDepressionPage() {
 		boolean bool = false;
-		if (SetupDrivers.chromeDriver.getTitle().contains("Depression")) {
+		if (SetupDrivers.driver.getTitle().contains("Depression")) {
 			bool = true;
 		}
 		return bool;
@@ -50,7 +50,7 @@ public class DepressionQuizActions {
 
 	public boolean verifyDepressionQuizPage() {
 		boolean bool = false;
-		if (SetupDrivers.chromeDriver.getCurrentUrl().contains("https://www.webmd.com/depression/quiz/default.htm")) {
+		if (SetupDrivers.driver.getCurrentUrl().contains("https://www.webmd.com/depression/quiz/default.htm")) {
 			bool = true;
 		}
 		return bool;
@@ -62,14 +62,14 @@ public class DepressionQuizActions {
 
 	public boolean verifyQuizPage() {
 		boolean bool = false;
-		if (SetupDrivers.chromeDriver.getCurrentUrl().contains("https://www.webmd.com/depression/rm-quiz-depression")) {
+		if (SetupDrivers.driver.getCurrentUrl().contains("https://www.webmd.com/depression/rm-quiz-depression")) {
 			bool = true;
 		}
 		return bool;
 	}
 
 	public void clickAnswer1() throws InterruptedException {
-		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.driver;
 		jse.executeScript("arguments[0].click()", 	QuizElements.Truelink);
 		Thread.sleep(5000);
 
@@ -89,7 +89,7 @@ public class DepressionQuizActions {
 
 
 	public void clickNext() throws InterruptedException {
-		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.driver;
 		jse.executeScript("arguments[0].click()", 	QuizElements.NextBtn);
 		Thread.sleep(5000);
 

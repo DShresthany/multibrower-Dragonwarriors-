@@ -13,13 +13,13 @@ public class QAactions {
 	
 	public QAactions() {
 		this.QA=new QAElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, QA);
+		PageFactory.initElements(SetupDrivers.driver, QA);
 	}
 	public void moveMouseOver() throws InterruptedException {
 //	WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 5);
 //	wait.until(ExpectedConditions.elementToBeClickable(QA.Health));
 	Thread.sleep(5000);
-	Actions action = new Actions(SetupDrivers.chromeDriver);
+	Actions action = new Actions(SetupDrivers.driver);
 	action.moveToElement(QA.Health).perform();
 		
 	}
@@ -30,7 +30,7 @@ public class QAactions {
 	
 	public boolean verifyQAPage() {
 		boolean bool = true;
-		if(SetupDrivers.chromeDriver.getTitle().contains("Questions & Answers")) {
+		if(SetupDrivers.driver.getTitle().contains("Questions & Answers")) {
 			bool = true;
 		}
 		return bool;
@@ -42,7 +42,7 @@ public class QAactions {
 	
 	public boolean verifyTopic() {
 		boolean bool = true;
-		if(SetupDrivers.chromeDriver.getTitle().contains("Eating Disorder")) {
+		if(SetupDrivers.driver.getTitle().contains("Eating Disorder")) {
 			bool = true;
 		}
 		return bool;

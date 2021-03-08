@@ -15,13 +15,13 @@ public class FitnessCalorieCounterActions {
 
 	public FitnessCalorieCounterActions() {
 		this.CalorieElements = new FitnessCalorieCounterElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, CalorieElements);
+		PageFactory.initElements(SetupDrivers.driver, CalorieElements);
 	}
 
 	public void getwebMDHomepage() {
-		SetupDrivers.chromeDriver.get("https://www.webmd.com/");
-		SetupDrivers.chromeDriver.manage().window().maximize();
-		SetupDrivers.chromeDriver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		SetupDrivers.driver.get("https://www.webmd.com/");
+		SetupDrivers.driver.manage().window().maximize();
+		SetupDrivers.driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
 	}
 
 	public void clickFitnessLink() {
@@ -30,8 +30,8 @@ public class FitnessCalorieCounterActions {
 
 	public boolean verifyFitnessPage() {
 		boolean bool = false;
-		System.out.println(SetupDrivers.chromeDriver.getTitle());
-		if (SetupDrivers.chromeDriver.getTitle().contains("Calories Burned Calculator")) {
+		System.out.println(SetupDrivers.driver.getTitle());
+		if (SetupDrivers.driver.getTitle().contains("Calories Burned Calculator")) {
 			bool = true;
 		}
 		return bool;
@@ -47,7 +47,7 @@ public class FitnessCalorieCounterActions {
 	public void clickFirstExercise() {
 //		WebDriverWait wait =new WebDriverWait(SetupDrivers.chromeDriver, 15);
 //		wait.until(ExpectedConditions.elementToBeClickable(CalorieElements.ClickFirstExercise));
-		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.driver;
 		jse.executeScript("arguments[0].click()", CalorieElements.ClickFirstExercise);
 //		CalorieElements.ClickFirstExercise.click();
 	}
@@ -82,9 +82,9 @@ public class FitnessCalorieCounterActions {
 
 	public void clickCalculcateBtn() {
 
-		WebDriverWait wait = new WebDriverWait(SetupDrivers.chromeDriver, 15);
+		WebDriverWait wait = new WebDriverWait(SetupDrivers.driver, 15);
 		wait.until(ExpectedConditions.elementToBeClickable(CalorieElements.CalculateBtn));
-		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.chromeDriver;
+		JavascriptExecutor jse = (JavascriptExecutor)SetupDrivers.driver;
 		jse.executeScript("arguments[0].click()", CalorieElements.CalculateBtn);
 //		CalorieElements.CalculateBtn.click();
 	}

@@ -10,7 +10,7 @@ public class SubscribeActions {
 	
 	public SubscribeActions(){
 		this.subscribe=new SubscribeElements();
-		PageFactory.initElements(SetupDrivers.chromeDriver, subscribe);
+		PageFactory.initElements(SetupDrivers.driver, subscribe);
 	}
 	
 	public void clickSubscribeBtn() {
